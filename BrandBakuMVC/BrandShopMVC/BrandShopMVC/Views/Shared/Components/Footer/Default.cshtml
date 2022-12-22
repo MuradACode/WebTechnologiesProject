@@ -1,0 +1,64 @@
+﻿@using BrandShop.Business.DTOs.FooterDto
+@{
+    Layout = null;
+}
+
+@model FooterDto
+
+<section id="brands">
+        <div class="container p-0">
+            <div class="owl-carousel owl-theme owl-carousel-brand mt-5">
+                @foreach (var item in Model.Brand)
+            {
+                <div class="item">
+                    <a href="#">
+                        <img class="img-fluid" src="~/uploads/brands/@item?.Image" alt="">
+                    </a>
+                </div>
+            }
+                
+
+                
+            </div>
+        </div>
+    </section>
+
+<footer>
+    <section id="copyRight">
+        <div class="container p-0">
+            <div class="row pt-2 pb-2">
+                <div class="col-lg-6 col-md-12 text d-flex align-items-center">
+                    Copyright ©
+                    <script>document.write(new Date().getFullYear());</script> | Developed & Designed by <a href="mailto:elnur.h.z@outlook.com" class="ps-1" style="text-decoration: underline 2px; color: #F1A634;">Elnur Huseynov</a>
+                </div>
+                <div class="col-lg-6 col-md-12 social d-flex align-items-center justify-content-end">
+                    <ul class="d-flex">
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-youtube'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-facebook'></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>

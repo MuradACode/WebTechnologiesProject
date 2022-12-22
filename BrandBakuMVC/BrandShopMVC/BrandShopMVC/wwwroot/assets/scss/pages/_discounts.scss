@@ -1,0 +1,97 @@
+#home {
+    #discounts {
+        margin-top: 100px;
+        .container {
+            background-color: #F6F0EB;
+
+            .header {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 20px;
+                h1 {
+                    font-size: 30px;
+                    // color: #FFFFFF;
+                    font-family: "Poppins" ,sans-serif;
+                }
+            }
+
+            .desc {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 20px;
+                p {
+                    font-size: 15px;
+                    font-family: "Poppins" , sans-serif;
+                    line-height: 30px;
+                    // color: #FFFFFF;
+                }
+            }
+
+            .price {
+                display: flex;
+                justify-content: center;
+                font-size: 25px;
+                color: #F1A634;
+                font-family: "Poppins" , sans-serif;
+                align-items: center;
+                margin-bottom: 20px;
+                .unit {
+                    font-size: 28px;
+                    font-weight: 600;
+                    padding-left: 5px;
+                }
+                
+                .line {
+                    color: #000000;
+                    padding: 0px 5px;
+                }
+
+                .brand {
+                    color: #636363;
+
+                }
+            }
+
+            .date {
+                font-size: 25px;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 30px;
+                span {
+                    // color: #FFFFFF;
+                    font-family: "Poppins" , sans-serif;
+                }
+            }
+
+            .shopBtn {
+                display: flex;
+                justify-content: center;
+                a {
+                    background-color: #FFFFFF;
+                    font-family: "Poppins" , sans-serif;
+                    font-size: 18px;
+                    color: #F1A634;
+                    padding: 10px 20px;
+                    border-radius: 0.5rem;
+                    text-decoration: none;
+                    transition: all .5s ease;
+
+                    &:hover {
+                        transform: scale(1.2 , 1.2);
+                    }
+                }
+            }
+
+            .image {
+                height: 301px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

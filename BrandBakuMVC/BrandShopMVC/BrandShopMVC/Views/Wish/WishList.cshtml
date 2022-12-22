@@ -1,0 +1,116 @@
+﻿@using BrandShop.Business.DTOs.WishDto
+@{
+    ViewData["Title"] = "BrandBaku - Bəyəndiklərim";
+}
+
+@model WishListDto
+
+<section id="breadcrumb" class="d-flex justify-content-center align-items-center">
+    <div class="text d-flex align-items-center">
+        <i class='bx bx-heart pe-3'></i>Bəyəndiklərim
+    </div>
+</section>
+
+<main id="wishlist">
+    <section id="wishlist-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+
+                        @foreach (var item in Model.WishListItems)
+                        {
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="item">
+                                    <div class="product">
+                                        <img src="~/uploads/products/@item.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" alt="">
+                                        <div class="product-info">
+                                            <div class="name">
+                                                <h3>@item.Product.Brand.Name</h3>
+                                            </div>
+
+                                            <div class="model">
+                                                <h4>@item.Product.Model</h4>
+                                            </div>
+
+                                            <div class="btns">
+                                                <ul class="d-flex">
+                                                    <li>
+                                                        <a href="#"><i class='bx bx-cart-alt'></i></a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#"><i class='bx bx-show-alt'></i></a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a asp-controller="Product" asp-action="DeleteWish" asp-route-Id="@item.Product.Id">
+                                                            <i class='bx bxs-trash'></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="price">
+                                                <div class="sale-price">
+                                                    100 <span>₼</span>
+                                                </div>
+
+                                                <div class="discount-price">
+                                                    80 <span>₼</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <section id="copyRight">
+        <div class="container p-0">
+            <div class="row pt-2 pb-2">
+                <div class="col-lg-6 col-md-12 text d-flex align-items-center">
+                    Copyright ©
+                    <script>document.write(new Date().getFullYear());</script> | This site is made with <a href="#">DevBull</a>
+                </div>
+                <div class="col-lg-6 col-md-12 social d-flex align-items-center justify-content-end">
+                    <ul class="d-flex">
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-youtube'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-facebook'></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>

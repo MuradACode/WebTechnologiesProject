@@ -1,0 +1,102 @@
+﻿@using BrandShop.Business.DTOs.ProductDto
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Title icon-->
+    <link rel="shortcut icon" href="/assets/images/titleIcon.svg" type="image/x-icon">
+    <!--Boxicons CDN-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--Owl carousel CSS-->
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.css">
+
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!--Toaster-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Custom css-->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/plugins.css">
+
+    <title>@ViewData["Title"]</title>
+</head>
+
+<body>
+    <div class="loader">
+        <div class="spinner-border" style="color: #F1A634 !important; width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    
+    @await Component.InvokeAsync("Header")
+
+    @RenderBody()
+    @if (TempData["Error"] != null)
+    {
+        <input type="hidden" id="toaster-error" style="font-family: sans-serif;" value="@TempData["Error"]" />
+    }
+    @if (TempData["Success"] != null)
+    {
+        <input type="hidden" id="toaster-success" value="@TempData["Success"]" />
+    }
+
+    @await Component.InvokeAsync("Footer")
+
+    <!--jQuery CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+    <!--Owl carousel JavaScript-->
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/_trendingOwlCarousel.js"></script>
+    <script src="/assets/js/_likeOwlCarousel.js"></script>
+    <script src="/assets/js/_brandOwlCarousel.js"></script>
+    <script src="/assets/js/_bestOwlCarousel.js"></script>
+    <script src="/assets/js/_smartOwlCarousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        $(document).ready(function() {
+            if ($("#toaster-error").length) {
+                console.log($("#toaster-error"))
+                toastr["error"]($("#toaster-error").val())
+            }
+            if ($("#toaster-success").length) {
+                console.log($("#toaster-success"))
+                toastr["success"]($("#toaster-success").val())
+            }
+        })
+    </script>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

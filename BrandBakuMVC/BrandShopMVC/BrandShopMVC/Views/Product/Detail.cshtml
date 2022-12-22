@@ -1,0 +1,178 @@
+﻿@using BrandShop.Business.DTOs.ProductDto
+@{
+    ViewData["Title"] = "BrandBaku - Ana Səhifə";
+}
+
+@model DetailDto
+
+<main id="detail">
+    <section id="product">
+        <div class="container p-0">
+            <div class="row">
+                <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                    <div class="flex-slider d-flex align-items-center">
+                        <img id=featured src="~/uploads/products/@Model.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image">
+
+                        <div id="slide-wrapper">
+                            <!-- <img id="slideLeft" class="arrow" src="/assets/images/arrow-left.png"> -->
+
+                            <div id="slider">
+                                @foreach (var image in @Model.Product.ProductImages)
+                                {
+                                    <img class="thumbnail active" src="~/uploads/products/@image.Image">
+                                }
+
+
+                            </div>
+
+                            <!-- <img id="slideRight" class="arrow" src="/assets/images/arrow-right.png"> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center">
+                    <div class="product-dtl">
+                        <div class="product-info">
+                            <div class="product-name">@Model.Product.Brand.Name</div>
+                            <div class="product-model mt-2 mb-2">
+                                @Model.Product.Model
+                            </div>
+                            <div class="reviews-counter">
+                                <div class="rate d-flex">
+                                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i><i class='bx bx-star'></i>
+                                </div>
+                                <span>2 Reviews</span>
+                            </div>
+                            <div class="product-price-discount">
+                                <span>@(Model.Product.SalePrice - ((Model.Product.SalePrice * Model.Product.DiscountPercent) / 100)) <span>₼</span></span><span class="line-through">
+                                    @if (Model.Product.DiscountPercent != 0)
+                                    {
+                                        @Model.Product.SalePrice
+
+                                        <span>₼</span>
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                        <p>@Model.Product.Description</p>
+
+                        <div class="product-count">
+                            <label class="mb-2" for="size">Miqdarı</label>
+                            <form action="#" class="display-flex">
+                                <div class="qtyminus">-</div>
+                                <input type="text" name="quantity" value="1" class="qty">
+                                <div class="qtyplus">+</div>
+                            </form>
+                            <a href="#" class="round-black-btn">Səbətə at</a>
+                            <a href="#" class="round-black-btn"><i class='bx bx-heart'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="review">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @*@Html.Partial("_CommentFormPartial",Model.Comment)*@
+            <partial name="_CommentFormPartial" for="CommentDto" />
+        }
+        
+    </section>
+
+    <section id="liked">
+        <div class="container p-0">
+            <div class="like-header d-flex justify-content-center">
+                <h1>Əlaqəli məhsullar</h1>
+            </div>
+
+            <div class="products">
+                <div class="owl-carousel owl-theme owl-carousel-like mt-5">
+                    <div class="item">
+                        <div class="product">
+                            <img src="/assets/images/T006.407.11.043.00_R_1.webp" alt="">
+                            <div class="product-info">
+                                <div class="name">
+                                    <h3>Tissot</h3>
+                                </div>
+
+                                <div class="model">
+                                    <h4>TISSOT LE LOCLE POWERMATIC 80</h4>
+                                </div>
+
+                                <div class="btns">
+                                    <ul class="d-flex">
+                                        <li>
+                                            <a href="#"><i class='bx bx-cart-alt'></i></a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#"><i class='bx bx-show-alt'></i></a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#"><i class='bx bx-heart'></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="price">
+                                    <div class="sale-price">
+                                        100 <span>₼</span>
+                                    </div>
+
+                                    <div class="discount-price">
+                                        80 <span>₼</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="product">
+                            <img src="/assets/images/T135.417.37.051.00_R_1.webp" alt="">
+                            <div class="product-info">
+                                <div class="name">
+                                    <h3>Tissot</h3>
+                                </div>
+
+                                <div class="model">
+                                    <h4>TISSOT T-RACE CYCLING TOUR DE FRANCE 2022 SPECIAL EDITION</h4>
+                                </div>
+
+                                <div class="btns">
+                                    <ul class="d-flex">
+                                        <li>
+                                            <a href="#"><i class='bx bx-cart-alt'></i></a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#"><i class='bx bx-show-alt'></i></a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#"><i class='bx bx-heart'></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="price">
+                                    <div class="sale-price">
+                                        100 <span>₼</span>
+                                    </div>
+
+                                    <div class="discount-price">
+                                        80 <span>₼</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</main>

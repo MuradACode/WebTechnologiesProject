@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+
+@model Color
+
+<style>
+    h2 {
+        color: #F1A634;
+        text-decoration: underline 2px;
+    }
+
+    p , span {
+        font-size: 18px;
+        font-weight: 600;
+    }
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"><i class="fas fa-text"></i>Delete product</h4>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>Ad</h2>
+                            <p><i class='bx bxs-checkbox' style="color: @Model.ColorHexCode;"></i>@Model.Name</p>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <h2>HEX kod</h2>
+                            <p>@Model.ColorHexCode</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        
+                        <div class="col-lg-6">
+                            <h2>Silinmə tarixi</h2>
+                            @if (Model.DeletedAt == null)
+                            {
+                                <span>Silinməyib</span>
+                            }
+
+                            @if (Model.DeletedAt != null)
+                            {
+                                <span>@Model.DeletedAt</span>
+                            }
+                        </div>
+                        <div class="col-lg-6">
+                            <h2>Duzəliş tarixi</h2>
+                            @if (Model.UpdatedAt == null)
+                            {
+                                <span>Düzəliş edilməyib</span>
+                            }
+
+                            @if (Model.UpdatedAt != null)
+                            {
+                                <span>@Model.UpdatedAt</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>Silinib?</h2>
+                            @if (Model.IsDeleted == true)
+                            {
+                                <span>Silinib</span>
+                            }
+
+                            @if (Model.IsDeleted == false)
+                            {
+                                <span>Silinməyib</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+﻿@using BrandShop.Business.DTOs.OrderDto
+@{
+    ViewData["Title"] = "BrandBaku - Səbət";
+}
+
+@model OrderDto
+
+<section id="breadcrumb" class="d-flex justify-content-center align-items-center">
+    <div class="text d-flex align-items-center">
+        <i class='bx bx-cart-alt pe-3'></i>Səbət
+    </div>
+</section>
+
+<main id="cart">
+    <section id="cart-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+
+                        @foreach (var item in Model.OrderItems)
+                        {
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="item">
+                                    <div class="product">
+                                        <img src="~/uploads/products/@item.Product.ProductImages.FirstOrDefault(x => x.PosterStatus == true).Image" alt="">
+
+                                        <div class="product-info">
+                                            <div class="product-delete position-absolute" style="right: 10px; bottom: 85%; font-size: 30px;">
+                                                <ul>
+                                                    <li>
+                                                        <a asp-controller="Product" asp-action="DeleteBasket" asp-route-id="@item.Product.Id"><i class='bx bx-x' style="color: #FFFFFF;"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="name">
+                                                <h3>@item.Product.Brand.Name</h3>
+                                            </div>
+
+                                            <div class="model">
+                                                <h4>@item.Product.Model</h4>
+                                            </div>
+
+                                            <div class="btns">
+                                                <ul>
+                                                    <li>
+                                                        <p>Qiymət: @(item.Product.SalePrice - ((item.Product.SalePrice * item.Product.DiscountPercent) / 100))</p>
+                                                    </li>
+
+                                                    <li>
+                                                        Say: @item.Count
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="price">
+                                                <div class="sale-price">
+                                                    @(item.Count * (item.Product.SalePrice - ((item.Product.SalePrice * item.Product.DiscountPercent) / 100))) <span>₼</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-12">
+                    <div class="product-list">
+                        <div class="header">
+                            <h2>Məhsullar</h2>
+                        </div>
+
+                        <div class="list">
+                            <ul>
+
+                                @foreach (var item in Model.OrderItems)
+                                {
+                                    <li>
+                                        <div class="info">
+                                            <div class="brand">
+                                                @item.Product.Brand.Name
+                                            </div>
+
+                                            <div class="name">
+                                                @item.Product.Model
+                                            </div>
+                                        </div>
+
+                                        <div class="price">
+                                            @(item.Count * (item.Product.SalePrice - ((item.Product.SalePrice * item.Product.DiscountPercent) / 100)))₼
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="totalPrice d-flex justify-content-between align-items-center">
+                            <div class="total">
+                                Məbləğ
+                            </div>
+
+                            <div class="price">
+                            </div>
+                        </div>
+
+                        <div class="orderBtn d-flex justify-content-center">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#orderModal">
+                                Sifariş Et
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <section id="copyRight">
+        <div class="container p-0">
+            <div class="row pt-2 pb-2">
+                <div class="col-lg-6 col-md-12 text d-flex align-items-center">
+                    Copyright ©
+                    <script>document.write(new Date().getFullYear());</script> | This site is made with <a href="#">DevBull</a>
+                </div>
+                <div class="col-lg-6 col-md-12 social d-flex align-items-center justify-content-end">
+                    <ul class="d-flex">
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-youtube'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class='bx bxl-facebook'></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<div class="modal fade" id="orderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    @await Html.PartialAsync("_OrderFormPartial", Model)
+</div>

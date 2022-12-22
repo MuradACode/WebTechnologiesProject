@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+@model List<Product>
+
+<style>
+    table td, table th {
+        text-align: center;
+    }
+
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <h4 class="card-title">Profile Datatable</h4>
+                    <a asp-controller="Product" asp-action="Create" class="d-flex align-items-center" style="padding: 10px; font-size: 18px; font-weight: 600; background-color: #FD7E14; color: #FFFFFF; border-radius: 10px;"><i class='bx bx-plus' style="font-size: 25px;"></i>Məhsul yarat</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display" style="min-width: 100%">
+                            <thead>
+
+                                <tr>
+                                    <th>№</th>
+                                    <th>Şəkil</th>
+                                    <th>Brend</th>
+                                    <th>Model</th>
+                                    <th>Alış-qiyməti</th>
+                                    <th>Satış-qiyməti</th>
+                                    <th>Endirim</th>
+                                    <th>Silinib?</th>
+                                    <th>Silinmə tarixi</th>
+                                    <th>Duzəliş tarixi</th>
+                                    <th>Hərəkətlər</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Product product in Model)
+                                {
+                                    <tr>
+                                        <td>@count</td>
+                                        <td><img width="35" src="~/uploads/products/@product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" /></td>
+                                        <td>@product.Brand.Name</td>
+                                        <td>@product.Model</td>
+                                        <td>@product.CostPrice</td>
+                                        <td>@product.SalePrice</td>
+                                        <td>@product.DiscountPercent</td>
+                                        <td>
+                                            @if (product.IsDeleted == true)
+                                            {
+                                                <span>Silinib</span>
+                                            }
+
+                                            @if (product.IsDeleted == false)
+                                            {
+                                                <span>Silinməyib</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (product.DeletedAt == null)
+                                            {
+                                                <span>Silinməyib</span>
+                                            }
+
+                                            @if (product.DeletedAt != null)
+                                            {
+                                                <span>@product.DeletedAt</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (product.UpdatedAt == null)
+                                            {
+                                                <span>Düzəliş edilməyib</span>
+                                            }
+
+                                            @if (product.UpdatedAt != null)
+                                            {
+                                                <span>@product.UpdatedAt</span>
+                                            }
+                                        </td>
+
+
+
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger shadow btn-xs sharp delete-btn me-1"><i class="fa fa-trash"></i></a>
+                                                <a asp-controller="Product" asp-action="Info" asp-route-id="@product.Id" class="btn btn-info shadow btn-xs sharp me-1"><i class="fas fa-info"></i></a>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+
+                                    count++;
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

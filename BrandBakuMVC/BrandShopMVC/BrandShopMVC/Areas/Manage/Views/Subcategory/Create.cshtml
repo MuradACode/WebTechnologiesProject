@@ -1,0 +1,58 @@
+﻿@using BrandShop.Business.DTOs.ProductDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model CreateSubcategoryDto
+
+<style>
+    .form-label {
+        font-size: 20px;
+        color: #F1A634;
+    }
+
+    option[selected = "selected"] {
+        background-color: #F1A634;
+    }
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="col-xl-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Düzəliş et</h4>
+                </div>
+                <div class="card-body">
+                    <div class="basic-form">
+                        <form method="post" asp-action="create">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label" asp-for="Name">Ad</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Ad">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label" asp-for="CategoryId">Category</label>
+                                    <select class="form-control" asp-for="CategoryId" asp-items="@new SelectList((List<Category>)ViewBag.Categories,nameof(Category.Id),nameof(Category.Name))">
+                                    </select>
+                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                           
+
+                            <div asp-validation-summary="ModelOnly"></div>
+
+
+
+
+                            <button type="submit" class="btn btn-primary mt-3">Yarat</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

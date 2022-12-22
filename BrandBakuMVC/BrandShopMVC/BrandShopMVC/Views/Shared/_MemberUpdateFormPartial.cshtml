@@ -1,0 +1,70 @@
+﻿@using BrandShop.Business.DTOs.AuthenticateDto
+@model UpdateDto
+
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-user-edit"></i>Profil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form asp-action="Profile" method="post">
+                    <div class="modal-body">
+                        <div class="row">
+                            @if(@Model.EmailConfirmed == false){
+                                <div class="col-lg-6 col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="userName" asp-for="UserName" placeholder="John Doe">
+                                    <label asp-for="UserName">İstifadəçi adı</label>
+                                    <span asp-validation-for="UserName"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="eMail" asp-for="Email" placeholder="name@example.com">
+                                    <label asp-for="Email">Email adres</label>
+                                    <span asp-validation-for="Email"></span>
+                                </div>
+                            </div>
+                            }
+
+                            @if(@Model.EmailConfirmed == true) {
+                                <input type = "hidden" asp-for="UserName" />
+                                <input type = "hidden" asp-for="Email" />
+                            }
+                            
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="address" asp-for="Address" placeholder="Bakı şəhəri Nərimanov Rayonu Bina 4 Mənzil 5">
+                                    <label asp-for="Address">Ünvan</label>
+                                    <span asp-validation-for="Address"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="phone" asp-for="PhoneNumber" placeholder="John Doe">
+                                    <label asp-for="PhoneNumber">Telefon</label>
+                                    <span asp-validation-for="PhoneNumber"></span>
+                                </div>
+                            </div>
+
+                            <div asp-validation-summary="ModelOnly"></div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bağla</button>
+                        <button type="submit" class="btn" style="
+                       color: #FFFFFF; background-color: #F1A634;">Yadda saxla</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>

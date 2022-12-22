@@ -1,0 +1,77 @@
+﻿@using BrandShop.Business.DTOs.AuthenticateDto
+@{
+    ViewData["Title"] = "BrandBaku - Şifrəni Unutmusunuz?";
+    Layout = null;
+}
+
+@model ResetDto
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    <!--Box icons CDN-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!--Title icon-->
+    <link rel="shortcut icon" href="/assets/images/titleIconVeryBig.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>BrandSop - Giriş</title>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!--Box icons CDN-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!--Title icon-->
+    <link rel="shortcut icon" href="/assets/images/titleIconVeryBig.png" type="image/x-icon">
+    <title>@ViewData["Title"]</title>
+</head>
+
+<body class="login-page page-hero d-flex align-items-center" style="height: 100vh;">
+
+    <div class="container p-0">
+        <div class="left">
+            <h1>Şifrəni unutmusunuz?</h1>
+            <p>Xatırladınız? <a asp-controller="Authenticate" asp-action="SignIn" >Giriş</a></p>
+            
+            <form asp-action="Forgot">
+                <label>Email</label>
+                <input asp-for="Email" placeholder="john@gmail.com">
+                <span asp-validation-for="Email" class="text-danger"></span>
+
+                <button class="button" type="submit" value="Send">Göndər</button> 
+            </form>
+
+        </div>
+
+        <div class="right"></div>
+
+    </div>
+
+    <!-- Bootstrap Javascript CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+        </script>
+    <!--Custom Javascript-->
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
+
+</html>

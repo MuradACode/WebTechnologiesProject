@@ -1,0 +1,85 @@
+﻿@using BrandShop.Business.DTOs.HomeDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model UpdateHeroDto
+
+<style>
+    .form-label {
+        font-size: 20px;
+        color: #F1A634;
+    }
+
+    option[selected = "selected"] {
+        background-color: #F1A634;
+    }
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="col-xl-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Düzəliş et</h4>
+                </div>
+                <div class="card-body">
+                    <div class="basic-form">
+                        <form method="post" asp-action="edit" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label" asp-for="Title">Başlıq</label>
+                                    <input asp-for="Title" class="form-control" placeholder="Başlıq">
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label" asp-for="Description">Haqqında</label>
+                                    <textarea asp-for="Description" class="form-control" placeholder="Haqqında"></textarea>
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label" asp-for="BtnText">Buton yazı</label>
+                                    <input asp-for="BtnText" class="form-control" placeholder="Buton yazı">
+                                    <span asp-validation-for="BtnText" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label" asp-for="BtnLink">Buton link</label>
+                                    <input asp-for="BtnLink" class="form-control" placeholder="Buton link">
+                                    <span asp-validation-for="BtnLink" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="ImageFile">Şəkil</label>
+                                    <input class="form-control" asp-for="ImageFile">
+                                    <img width="100" src="~/uploads/hero/@Model?.Image" style="border: 1px solid #F1A634;" />
+                                    <span class="text-danger" asp-validation-for="ImageFile"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label asp-for="ImageFile">Arxa plan şəkli</label>
+                                    <input class="form-control" asp-for="BgImageFile">
+                                    <img width="100" src="~/uploads/hero/@Model?.BackgroundImage" style="border: 1px solid #F1A634;" />
+                                    <span class="text-danger" asp-validation-for="BgImageFile"></span>
+                                </div>
+                            </div>
+
+                            <div asp-validation-summary="ModelOnly"></div>
+
+
+
+
+                            <button type="submit" class="btn btn-primary mt-3">Yenilə</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

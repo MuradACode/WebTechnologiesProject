@@ -1,0 +1,107 @@
+footer {
+    background-color: #000000;
+
+    #copyRight {
+        .text {
+            color: #FFFFFF;
+            font-family: "Poppins", sans-serif;
+
+            a {
+                font-weight: 500;
+                color: #FFFFFF;
+
+                &:hover {
+                    color: #FF0000;
+                }
+            }
+        }
+
+        .social {
+            ul {
+                li {
+                    width: 30px;
+                    height: 30px;
+                    background-color: #FFFFFF;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    margin: 0px 5px;
+                    transition: all .5s ease;
+
+                    &:hover {
+                        background-color: #F1A634;
+                    }
+
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        i {
+                            color: #000000;
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+#questions {
+    position: fixed;
+    right: 20px;
+    bottom: 150px;
+    z-index: 99999999 !important;
+
+    .questionBox {
+        opacity: 0;
+        visibility: hidden;
+        transition: all .5s ease;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-color: transparent;
+            
+            i {
+                padding: 25px;
+                border-radius: 50%;
+                background-color: #F1A634;
+                color: #FFFFFF;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+#upPage {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    z-index: 99999999 !important;
+
+    .upPageBox {
+        opacity: 0;
+        visibility: hidden;
+        transition: all .5s ease;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i {
+                padding: 25px;
+                border-radius: 50%;
+                background-color: #F1A634;
+                color: #FFFFFF;
+                font-size: 20px;
+            }
+        }
+    }
+}

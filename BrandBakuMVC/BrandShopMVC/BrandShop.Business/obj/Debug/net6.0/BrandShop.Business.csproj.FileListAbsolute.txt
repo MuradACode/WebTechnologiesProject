@@ -1,0 +1,15 @@
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\bin\Debug\net6.0\BrandShop.Business.deps.json
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\bin\Debug\net6.0\BrandShop.Business.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\bin\Debug\net6.0\BrandShop.Business.pdb
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\BrandShop.Business.csproj.AssemblyReference.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\BrandShop.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\BrandShop.Business.AssemblyInfoInputs.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\BrandShop.Business.AssemblyInfo.cs
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\BrandShop.Business.csproj.CoreCompileInputs.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\BrandShop.Business.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\refint\BrandShop.Business.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\BrandShop.Business.pdb
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\ref\BrandShop.Business.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\bin\Debug\net6.0\BrandShop.Core.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\bin\Debug\net6.0\BrandShop.Core.pdb
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Business\obj\Debug\net6.0\BrandShop.Business.csproj.CopyComplete

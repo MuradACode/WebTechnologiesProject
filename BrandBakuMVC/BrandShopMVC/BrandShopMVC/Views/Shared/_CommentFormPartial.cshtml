@@ -1,0 +1,46 @@
+﻿@using BrandShop.Business.DTOs.CommentDto
+@model CreateCommentDto
+
+<div class="comments">
+
+    <h2>Şərh yazın</h2>
+   
+
+    <form class="comments__form" asp-action="Comment" method="post" id="add-comment">
+        <div class="d-flex justify-content-between align-items-center">
+             <div class="rate">
+                <input type="radio" id="star1" asp-for="Rate" value="5" />
+                <label for="star1" title="text">5 stars</label>
+                <input type="radio" id="star2" asp-for="Rate" value="4" />
+                <label for="star2" title="text">4 stars</label>
+                <input type="radio" id="star3" asp-for="Rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star4" asp-for="Rate" value="2" />
+                <label for="star4" title="text">2 stars</label>
+                <input type="radio" id="star5" asp-for="Rate" value="1" />
+                <label for="star5" title="text">1 star</label>
+            </div>
+            <span class="text-danger" asp-validation-for="Rate"></span>
+
+            <div class="comments__form-text">
+                <div class="comments__form-field">
+                    <textarea id="comments__form-label-text"
+                              placeholder="Fikirlərinizi ifadə edin" asp-for="Text"
+                              class="comments__form-input comments__form-textarea"></textarea>
+                    <label asp-for="Text" class="comments__form-label" for="comments__form-label-text">
+                        <span class="comments__form-label-text">Fikirlərinizi ifadə edin</span>
+                    </label>
+                    <span class="text-danger" asp-validation-for="Text"></span>
+                </div>
+            </div>
+         </div>
+
+         <input type="hidden" asp-for="ProductId"/> 
+
+        <button name="submit" type="submit" id="submit" class="comments__form-submit">Göndər</button>
+    </form>
+
+    <div class="comments__list">
+        <!-- Comments -->
+    </div>
+</div>

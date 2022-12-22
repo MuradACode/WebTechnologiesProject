@@ -1,0 +1,17 @@
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\bin\Debug\net6.0\BrandShop.Data.deps.json
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\bin\Debug\net6.0\BrandShop.Data.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\bin\Debug\net6.0\BrandShop.Data.pdb
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.csproj.AssemblyReference.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.AssemblyInfoInputs.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.AssemblyInfo.cs
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.csproj.CoreCompileInputs.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\refint\BrandShop.Data.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.pdb
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\ref\BrandShop.Data.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\bin\Debug\net6.0\BrandShop.Data.runtimeconfig.json
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\bin\Debug\net6.0\BrandShop.Core.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\bin\Debug\net6.0\BrandShop.Core.pdb
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.csproj.CopyComplete
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Data\obj\Debug\net6.0\BrandShop.Data.genruntimeconfig.cache

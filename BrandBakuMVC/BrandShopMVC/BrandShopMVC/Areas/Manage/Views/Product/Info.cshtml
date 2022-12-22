@@ -1,0 +1,222 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+
+@model Product
+
+<style>
+    h2 {
+        color: #F1A634;
+        text-decoration: underline 2px;
+    }
+
+    p, span {
+        font-size: 18px;
+        font-weight: 600;
+        
+    }
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"><i class="fas fa-text"></i>Delete product</h4>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h2>Brend</h2>
+                            <p>@Model.Brand.Name</p>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Rəng</h2>
+                            @foreach (var color in Model.ProductColors)
+                            {
+                                <p>@color.Color.Name</p>
+                            }
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Kateqoriya</h2>
+                            <p>@Model.Category.Name</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>Model</h2>
+                            <p>@Model.Model</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <h2>Açıqlama</h2>
+                            <p>@Model.Description</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h2>Alış-qiyməti</h2>
+                            <p>@Model.CostPrice</p>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Satış-qiyməti</h2>
+                            <p>@Model.SalePrice</p>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Endirim</h2>
+                            <p>@Model.DiscountPercent<span>%</span></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h2>Anbar statusu</h2>
+                            @if (Model.StockStatus == true)
+                            {
+                                <p>Anbarda var</p>
+                            }
+
+                            @if (Model.StockStatus == false)
+                            {
+                                <p>Anbarda yoxdur</p>
+                            }
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Trend</h2>
+                            @if (Model.IsTrend == true)
+                            {
+                                <p>Trend məhsuldur</p>
+                            }
+
+                            @if (Model.IsTrend == false)
+                            {
+                                <p>Trend məhsul deyil</p>
+                            }
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Ən çox satan</h2>
+                            @if (Model.IsBest == true)
+                            {
+                                <p>Ən çox satandır</p>
+                            }
+
+                            @if (Model.IsBest == false)
+                            {
+                                <p>Ən çox satan deyil</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h2>Ağıllı</h2>
+                            @if (Model.IsSmart == true)
+                            {
+                                <p>Ağıllıdır</p>
+                            }
+
+                            @if (Model.IsSmart == false)
+                            {
+                                <p>Ağıllı deyil</p>
+                            }
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Əlaqəli</h2>
+                            @if (Model.IsRelated == true)
+                            {
+                                <p>Əlaqəlidir</p>
+                            }
+
+                            @if (Model.IsRelated == false)
+                            {
+                                <p>Əlaqəli deyil</p>
+                            }
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Bəyənilən</h2>
+                            @if (Model.IsLiked == true)
+                            {
+                                <p>Bəyəniləndir</p>
+                            }
+
+                            @if (Model.IsLiked == false)
+                            {
+                                <p>Bəyənilən deyil</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>Poster şəkli</h2>
+                            <img width="100" src="~/uploads/products/@Model.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" />
+                        </div>
+                        <div class="col-lg-6">
+                            <h2>Şəkillər</h2>
+                            @foreach (var image in Model.ProductImages.Where(x => x.PosterStatus == false))
+                            {
+                                <img width="100" src="~/uploads/products/@image?.Image" />
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h2>Düzəliş tarixi</h2>
+                            @if (Model.UpdatedAt == null)
+                            {
+                                <p>Düzəliş edilməyib</p>
+                            }
+
+                            @if (Model.UpdatedAt != null)
+                            {
+                                <p>@Model.UpdatedAt</p>
+                            }
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Silinib?</h2>
+                            @if (Model.IsDeleted == true)
+                            {
+                                <p>Silinib</p>
+                            }
+
+                            @if (Model.IsDeleted == false)
+                            {
+                                <p>Silinməyib</p>
+                            }
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h2>Silinmə tarixi</h2>
+                            @if (Model.DeletedAt == null)
+                            {
+                                <p>Silinməyib</p>
+                            }
+
+                            @if (Model.DeletedAt != null)
+                            {
+                                <p>@Model.DeletedAt</p>
+                            }
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\bin\Debug\net6.0\BrandShop.Core.deps.json
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\bin\Debug\net6.0\BrandShop.Core.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\bin\Debug\net6.0\BrandShop.Core.pdb
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\BrandShop.Core.csproj.AssemblyReference.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\BrandShop.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\BrandShop.Core.AssemblyInfoInputs.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\BrandShop.Core.AssemblyInfo.cs
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\BrandShop.Core.csproj.CoreCompileInputs.cache
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\BrandShop.Core.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\refint\BrandShop.Core.dll
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\BrandShop.Core.pdb
+C:\Users\HP-2022\Desktop\BrandShop\BrandShopMVC\BrandShopMVC\BrandShop.Core\obj\Debug\net6.0\ref\BrandShop.Core.dll

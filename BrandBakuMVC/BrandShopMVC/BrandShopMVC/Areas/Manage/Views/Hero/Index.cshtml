@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+@model List<Hero>
+
+<style>
+    table td, table th {
+        text-align: center;
+    }
+
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <h4 class="card-title">Profile Datatable</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display" style="min-width: 100%">
+                            <thead>
+
+                                <tr>
+                                    <th>№</th>
+                                    <th>Şəkil</th>
+                                    <th>Ad</th>
+                                    <th>Duzəliş tarixi</th>
+                                    <th>Hərəkətlər</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Hero hero in Model)
+                                {
+                                    <tr>
+                                        <td>@count</td>
+                                        <td><img class="rounded-circle" width="35" src="~/uploads/hero/@hero?.Image" /></td>
+                                        <td>@hero.Title</td>
+                                        <td>
+                                            @if (hero.UpdatedAt == null)
+                                            {
+                                                <span>Düzəliş edilməyib</span>
+                                            }
+
+                                            @if (hero.UpdatedAt != null)
+                                            {
+                                                <span>@hero.UpdatedAt</span>
+                                            }
+                                        </td>
+
+
+
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <a asp-controller="Hero" asp-action="Edit" asp-route-id="@hero.Id" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+
+                                    count++;
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

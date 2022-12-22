@@ -1,0 +1,249 @@
+﻿@using BrandShop.Business.DTOs.ProductDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model CreateProductDto
+
+<style>
+    .form-label {
+        font-size: 20px;
+        color: #F1A634;
+    }
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="col-xl-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Məhsul yarat</h4>
+                </div>
+                <div class="card-body">
+                    <div class="basic-form">
+                        <form method="post" asp-action="create" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="BrandId">Brend</label>
+                                    <select class="form-control" asp-for="BrandId" asp-items="@new SelectList((List<Brand>)ViewBag.Brands,nameof(Brand.Id),nameof(Brand.Name))">
+                                    </select>
+                                    <span asp-validation-for="BrandId" class="text-danger"></span>
+                                </div>
+
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="ColorIds">Rəng</label>
+                                    <select class="form-control" asp-for="ColorIds" asp-items="@new SelectList((List<Color>)ViewBag.Colors,nameof(Color.Id),nameof(Color.Name))">
+                                    </select>
+                                    <span asp-validation-for="ColorIds" class="text-danger"></span>
+
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="CategoryId">Category</label>
+                                    <select class="form-control" asp-for="CategoryId" asp-items="@new SelectList((List<Category>)ViewBag.Categories,nameof(Category.Id),nameof(Category.Name))">
+                                    </select>
+                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="SubcategoryId">Alt kateqoriya</label>
+                                    <select class="form-control" asp-for="SubcategoryId" asp-items="@new SelectList((List<Subcategory>)ViewBag.Subcategories,nameof(Subcategory.Id),nameof(Subcategory.Name))">
+                                    </select>
+                                    <span asp-validation-for="SubcategoryId" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="Model">Model</label>
+                                    <input asp-for="Model" class="form-control" placeholder="Model">
+                                    <span asp-validation-for="Model" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="Description">Açıqlama</label>
+                                    <input asp-for="Description" class="form-control" placeholder="Açıqlama">
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="CostPrice">Alış qiyməti</label>
+                                    <input asp-for="CostPrice" class="form-control" placeholder="Alış qiyməti">
+                                    <span asp-validation-for="CostPrice" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="SalePrice">Satış qiyməti</label>
+                                    <input asp-for="SalePrice" class="form-control" placeholder="Satış qiyməti">
+                                    <span asp-validation-for="SalePrice" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="DiscountPercent">Endirim</label>
+                                    <input asp-for="DiscountPercent" class="form-control" placeholder="Endirim">
+                                    <span asp-validation-for="DiscountPercent" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" mb-3 col-lg-4">
+                                    <label class="form-label">Anbar statusu</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="StockStatus" type="radio" value="@true">
+                                            <label asp-for="StockStatus" class="form-check-label">
+                                                Anbarda var
+                                            </label>
+                                            <span asp-validation-for="StockStatus" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" checked="checked" asp-for="StockStatus" type="radio" value="@false">
+                                            <label asp-for="StockStatus" class="form-check-label">
+                                                Anbarda yoxdur
+                                            </label>
+                                            <span asp-validation-for="StockStatus" class="text-danger"></span>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+
+                                <div class=" mb-3 col-lg-4">
+                                    <label class="form-label">Trend</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsTrend" type="radio" value="@true">
+                                            <label asp-for="IsTrend" class="form-check-label">
+                                                Trend məhsuldur
+                                            </label>
+                                        <span asp-validation-for="IsTrend" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsTrend" type="radio" value="@false">
+                                            <label asp-for="IsTrend" class="form-check-label">
+                                                Trend məhsul deyil
+                                            </label>
+                                        <span asp-validation-for="IsTrend" class="text-danger"></span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class=" mb-3 col-lg-4">
+                                    <label class="form-label">Ən çox satan</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsBest" type="radio" value="@true">
+                                            <label asp-for="IsBest" class="form-check-label">
+                                                Ən çox satandır
+                                            </label>
+                                        <span asp-validation-for="IsBest" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsBest" type="radio" value="@false">
+                                            <label asp-for="IsBest" class="form-check-label">
+                                                Ən çox satan deyil
+                                            </label>
+                                        <span asp-validation-for="IsBest" class="text-danger"></span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" mb-3 col-lg-4">
+                                    <label class="form-label">Ağıllı</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsSmart" type="radio" value="@true">
+                                            <label asp-for="IsSmart" class="form-check-label">
+                                                Ağıllıdır
+                                            </label>
+                                        <span asp-validation-for="IsSmart" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsSmart" type="radio" value="@false">
+                                            <label asp-for="IsSmart" class="form-check-label">
+                                                Ağıllı deyil
+                                            </label>
+                                        <span asp-validation-for="IsSmart" class="text-danger"></span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class=" mb-3 col-lg-4">
+                                    <label class="form-label">Əlaqəli</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsRelated" type="radio" value="@true">
+                                            <label asp-for="IsRelated" class="form-check-label">
+                                                Əlaqəlidir
+                                            </label>
+                                        <span asp-validation-for="IsRelated" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsRelated" type="radio" value="@false">
+                                            <label asp-for="IsRelated" class="form-check-label">
+                                                Əlaqəli deyil
+                                            </label>
+                                        <span asp-validation-for="IsRelated" class="text-danger"></span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class=" mb-3 col-lg-4">
+                                    <label class="form-label">Bəyənilən</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsLiked" type="radio" value="@true">
+                                            <label asp-for="IsLiked" class="form-check-label">
+                                                Bəyəniləndir
+                                            </label>
+                                        <span asp-validation-for="IsLiked" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" asp-for="IsLiked" type="radio" value="@false">
+                                            <label asp-for="IsLiked" class="form-check-label">
+                                                Bəyənilən deyil
+                                            </label>
+                                        <span asp-validation-for="IsLiked" class="text-danger"></span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="PosterFile">PosterFile</label>
+                                    <input class="form-control" asp-for="PosterFile">
+                                    <span class="text-danger" asp-validation-for="PosterFile"></span>
+                                </div>
+                            
+                                <div class="form-group col-md-6">
+                                    <label asp-for="ImageFiles">ImageFiles</label>
+                                    <input class="form-control" asp-for="ImageFiles">
+                                    <span class="text-danger" asp-validation-for="ImageFiles"></span>
+                                </div>
+                            </div>
+
+                            <input asp-for="ProductImages" type="hidden" />
+
+
+                            <button type="submit" class="btn btn-primary">Yarat</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

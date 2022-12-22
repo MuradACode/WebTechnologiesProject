@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+header {
+    nav {
+        background-color: #FFFFFF;
+
+        .search-form {
+            display: flex;
+        }
+        // height: 70px;
+        .navbar-brand {
+            // border: 1px solid black;
+            width: 200px;
+            height: 80px;
+            overflow: hidden;
+            
+            img {
+                width: 200px;
+                height: 80px;
+                transform: scale(3,3);
+            }
+            // background-image: url("/assets/images/seffaf.svg");
+            // background-size: 200px 100px;
+            // background-repeat: no-repeat;
+        }
+
+        .navbar-nav {
+            
+            li {
+                .active {
+                    color: #F1A634 !important;
+                }
+                a{
+                    i {
+                        color: #F1A634;
+                        padding-right: 5px;
+                    }
+
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 18px;
+                    color: #000000;
+                    transition: all .5s ease;
+
+                    &:hover {
+                        color: #F1A634;
+                    }
+                }
+            }
+
+            .account {
+                position: relative;
+                ul {
+                    width: 110px;
+                    position: absolute;
+                    background-color: #FFFFFF;
+                    border-radius: 0.5rem;
+                    left: 100px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all .5s ease;
+                    li {
+                        a {
+                            padding: 5px 10px;
+                            display: flex;
+                            align-items: center;
+                            font-size: 15px;
+                        }
+                    }
+                }
+
+                &:hover {
+                    ul {
+                        opacity: 1;
+                        visibility: visible;
+                        left: 0px;
+                    }
+                }
+            }
+        }
+
+        form{
+            input::placeholder {
+                font-family: 'Poppins', sans-serif;
+            }
+            
+            button {
+                font-family: 'Poppins', sans-serif !important;
+                border-color: transparent !important;
+                &:hover {
+                    border-color: transparent !important;
+                    background-color: #F1A634 !important;
+                    i {
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+}

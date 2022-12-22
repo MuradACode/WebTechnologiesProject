@@ -1,0 +1,363 @@
+﻿@using BrandShop.Business.DTOs.ProductDto
+@using BrandShop.Core.Entities
+@{
+    ViewData["Title"] = "BrandBaku - Alış-veriş";
+}
+
+@model ShopDto
+
+<main id="shop">
+    <section id="filter-products">
+        <div class="container p-0">
+            <div class="filter-small d-flex justify-content-end filter-none">
+                <button class="btn filterBtn" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                    <i class='bx bx-filter-alt'></i>
+                </button>
+
+                <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+                     aria-labelledby="staticBackdropLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="staticBackdropLabel"><i class='bx bx-filter-alt'></i></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div>
+                            <div class="header">
+                                <h2>Filter</h2>
+                            </div>
+
+                            <div class="filter-options">
+                                <div class="category-filter">
+                                    <div class="title">
+                                        <h2>Categories</h2>
+                                    </div>
+
+                                    <div class="category-list">
+                                        <ul>
+
+                                            @foreach (Category categories in Model.Categories)
+                                            {
+                                                <li style="position: relative;">
+                                                    @*<a asp-controller="Product" asp-action="Shop" asp-route-categoryId = "@categories.Id">
+                                                @categories.Name
+                                                </a>*@
+
+                                                    <a asp-controller="Product" asp-action="Shop" asp-route-categoryId="@categories.Id" class="d-flex justify-content-between">
+                                                        @categories.Name
+                                                        <i class='bx bxs-down-arrow'></i>
+                                                    </a>
+
+                                                    <ul class="subcategory">
+                                                        @foreach (Subcategory subcategory in Model.Subcategories.Where(x => x.CategoryId == categories.Id))
+                                                        {
+                                                            <li style="padding: 3px 10px;">
+                                                                <a href="#">
+                                                                    @subcategory.Name
+                                                                </a>
+                                                            </li>
+                                                        }
+
+
+                                                        @*<li style="padding: 3px 10px;">
+                                                    <a href="#">
+                                                    Qolbag
+                                                    </a>
+                                                    </li>
+
+                                                    <li style="padding: 3px 10px;">
+                                                    <a href="#">
+                                                    Uzuk
+                                                    </a>
+                                                    </li>*@
+                                                    </ul>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="brand-filter">
+                                    <div class="title">
+                                        <h2>Brand</h2>
+                                    </div>
+
+                                    <div class="brand-list">
+                                        <ul>
+                                            @foreach (Brand brand in Model.Brands)
+                                            {
+                                                <li>
+                                                    <a href="#">
+                                                        @brand.Name
+                                                    </a>
+                                                </li>
+                                            }
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="color-filter">
+                                    <div class="title">
+                                        <h2>Color</h2>
+                                    </div>
+
+                                    <div class="color-list">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i class='bx bxs-checkbox' style="color: #FFD700;"></i>Gold
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="#">
+                                                    <i class='bx bxs-checkbox' style="color: #C0C0C0;"></i>Silver
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="#">
+                                                    <i class='bx bxs-checkbox' style="color: #000000;"></i>Black
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="#">
+                                                    <i class='bx bxs-checkbox' style="color: #9F2B68;"></i>Purple
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="filter-big">
+                        <div class="header">
+                            <h2>Filter</h2>
+                        </div>
+
+                        <div class="filter-options">
+                            <div class="category-filter">
+                                <div class="title">
+                                    <h2>Categories</h2>
+                                </div>
+
+                                <div class="category-list">
+                                    <ul>
+                                        @foreach (Category categories in Model.Categories)
+                                        {
+                                            <li style="position: relative;">
+                                                @*<a asp-controller="Product" asp-action="Shop" asp-route-categoryId = "@categories.Id">
+                                            @categories.Name
+                                            </a>*@
+
+                                                <a asp-controller="Product" asp-action="Shop" asp-route-categoryId="@categories.Id" class="d-flex justify-content-between">
+                                                    @categories.Name
+                                                    <i class='bx bxs-right-arrow'></i>
+                                                </a>
+
+                                                <ul class="subcategory">
+                                                        @foreach (Subcategory subcategory in Model.Subcategories.Where(x => x.CategoryId == categories.Id))
+                                                        {
+                                                            <li style="padding: 3px 10px;">
+                                                                <a href="#">
+                                                                    @subcategory.Name
+                                                                </a>
+                                                            </li>
+                                                        }
+
+
+                                                        @*<li style="padding: 3px 10px;">
+                                                    <a href="#">
+                                                    Qolbag
+                                                    </a>
+                                                    </li>
+
+                                                    <li style="padding: 3px 10px;">
+                                                    <a href="#">
+                                                    Uzuk
+                                                    </a>
+                                                    </li>*@
+                                                    </ul>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="brand-filter">
+                                <div class="title">
+                                    <h2>Brand</h2>
+                                </div>
+
+                                <div class="brand-list">
+                                    <ul>
+                                        @foreach (Brand brand in Model.Brands)
+                                        {
+                                            <li>
+                                                <a href="#">
+                                                    @brand.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="color-filter">
+                                <div class="title">
+                                    <h2>Color</h2>
+                                </div>
+
+                                <div class="color-list">
+                                    <ul>
+
+                                        @foreach (Color color in Model.Colors)
+                                        {
+                                            <li>
+                                                <a asp-controller="Product" asp-action="Shop" asp-route-categoryId="@Model.CategoryId" asp-route-colorId="@color.Id">
+                                                    <i class='bx bxs-checkbox' style="color: @color.ColorHexCode;"></i>@color.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="price-filter">
+                                <div class="title">
+                                    <h3>Price</h3>
+                                </div>
+                                <div class="price-input">
+
+                                    <div class="single-block">
+
+                                        <div class="range-slider pt--30">
+                                            <div class="sb-range-slider"></div>
+                                            <div class="slider-price">
+                                                <p>
+                                                    <input type="text" id="amount" readonly="">
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+
+                        @foreach (Product product in Model.Products)
+                        {
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="item">
+                                    <div class="product">
+                                        <img src="~/uploads/products/@product.ProductImages.FirstOrDefault(x => x.PosterStatus == true)?.Image" alt="">
+                                        <div class="product-info">
+                                            <div class="name">
+                                                <h3>@product.Brand.Name</h3>
+                                            </div>
+
+                                            <div class="model">
+                                                <h4>@product.Model</h4>
+                                            </div>
+
+                                            <div class="btns">
+                                                <ul class="d-flex">
+                                                    <li>
+                                                        <a asp-controller="Product" asp-action="AddBasket" asp-route-prodId="@product.Id"><i class='bx bx-cart-alt'></i></a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@product.Id"><i class='bx bx-show-alt'></i></a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a asp-controller="Product" asp-action="AddWish" asp-route-id="@product.Id"><i class='bx bx-heart'></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="price">
+                                                <div class="sale-price">
+                                                    @product.SalePrice <span>₼</span>
+                                                </div>
+
+                                                <div class="discount-price">
+                                                    @(product.SalePrice - ((product.SalePrice * product.DiscountPercent) / 100)) <span>₼</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                        <nav aria-label="Page navigation example" class="pagination d-flex justify-content-center">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+
+
+<section id="upPage">
+    <div class="upPageBox">
+        <a href="#"><i class='bx bxs-chevrons-up'></i></a>
+    </div>
+</section>
+
+<script>
+    $(function() {
+        $(".sb-range-slider").slider({
+            range: true,
+            min: @ViewBag.MinPrice,
+            max: @ViewBag.MaxPrice,
+            values: [@ViewBag.SelectedMinPrice, @ViewBag.SelectedMaxPrice],
+            slide: function(event, ui) {
+                $("#amount").val("£" + ui.values[0] + " - £" + ui.values[1]);
+            },
+            change: function(event, ui) {
+                console.log(ui.values[0] + ' - ' + ui.values[1])
+                let url = new URL(window.location.href);
+                let params = new URLSearchParams(url.search);
+                params.set("minPrice", ui.values[0]);
+                params.set("maxPrice", ui.values[1]);
+                url.search = params;
+                window.location = url.href;
+            }
+        });
+        $("#amount").val("£" + $(".sb-range-slider").slider("values", 0) +
+            " - £" + $(".sb-range-slider").slider("values", 1));
+    });
+</script>

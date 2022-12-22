@@ -1,0 +1,234 @@
+﻿@using BrandShop.Business.DTOs.AuthenticateDto
+@{
+    ViewData["Title"] = "BrandBaku - Profil";
+}
+
+@model ProfileDto
+
+<main id="profile">
+    <div class="container p-0" style="margin-top: 100px;">
+        <div class="row">
+            <div class="col-12">
+                <div class="menu d-flex justify-content-center ">
+                    <ul class="nav nav-pills d-flex justify-content-lg-end justify-content-center align-items-center"
+                        id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile" aria-selected="true">
+                                Profil
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-password-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-password" type="button" role="tab"
+                                    aria-controls="pills-password" aria-selected="false">
+                                Şifrə
+                            </button>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-order-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-order" type="button" role="tab" aria-controls="pills-order"
+                                    aria-selected="false">
+                                Sifarişlər
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show profile active" id="pills-profile" role="tabpanel"
+                 aria-labelledby="pills-profile-tab">
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <div class="profile-info pt-4 pb-4 ps-5">
+                            <div class="username d-flex pb-3">
+                                <h3>İstifadəçi adı</h3>: @Model.Update.UserName
+                            </div>
+
+                            <div class="email d-flex pb-3">
+                                <h3>E-mail</h3>: @Model.Update.Email
+                            </div>
+
+                            <div class="address d-flex pb-3">
+                                <h3>Ünvan</h3>: @Model.Update.Address
+                            </div>
+
+                            <div class="phone d-flex pb-3">
+                                <h3>Telefon</h3>: @Model.Update.PhoneNumber
+                            </div>
+
+                            <div class="btns d-flex justify-content-end me-5">
+                                <div class="editBtn">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                        <i class='bx bx-pencil'></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @if (@Model.Update.EmailConfirmed == false)
+            {
+                <div class="tab-pane fade show password" id="pills-password" role="tabpanel"
+                 aria-labelledby="pills-password-tab">
+                    <div class="row mt-5">
+                        <div class="col-lg-12">
+                            <div class="profile-info pt-4 pb-4 ps-5">
+                                <div class="password d-flex pb-3">
+                                    <h3>Şifrə</h3>: ********
+                                </div>
+
+                                <div class="info d-flex pb-3 text-danger">
+                                    Təhlükəsizlik məqsədi ilə şifrəniz göstərilmir.
+                                </div>
+
+                                <div class="btns d-flex justify-content-end me-5">
+                                    <div class="editBtn">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#passwordModal">
+                                            <i class='bx bx-pencil'></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+
+            <div class="tab-pane fade show order" id="pills-order" role="tabpanel"
+                 aria-labelledby="pills-order-tab">
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <div class="accordion profile-info" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse1" aria-expanded="true"
+                                            aria-controls="collapse1">
+                                        Sifariş №1
+                                    </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse show"
+                                     aria-labelledby="heading1" data-bs-parent="#accordionExample">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Brand</th>
+                                                <th scope="col">Model</th>
+                                                <th scope="col">Say</th>
+                                                <th scope="col">Qiymət</th>
+                                                <th scope="col">Məbləğ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Tissot</td>
+                                                <td>TISSOT T-RACE CYCLING TOUR DE FRANCE 2022 SPECIAL EDITION</td>
+                                                <td>2</td>
+                                                <td>100</td>
+                                                <td>200</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading2">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse2" aria-expanded="true"
+                                            aria-controls="collapse2">
+                                        Sifariş №2
+                                    </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse show"
+                                     aria-labelledby="heading2" data-bs-parent="#accordionExample">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Brand</th>
+                                                <th scope="col">Model</th>
+                                                <th scope="col">Say</th>
+                                                <th scope="col">Qiymət</th>
+                                                <th scope="col">Məbləğ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Tissot</td>
+                                                <td>TISSOT T-RACE CYCLING TOUR DE FRANCE 2022 SPECIAL EDITION</td>
+                                                <td>2</td>
+                                                <td>100</td>
+                                                <td>200</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading3">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse3" aria-expanded="true"
+                                            aria-controls="collapse3">
+                                        Sifariş №3
+                                    </button>
+                                </h2>
+                                <div id="collapse3" class="accordion-collapse collapse show"
+                                     aria-labelledby="heading3" data-bs-parent="#accordionExample">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Brand</th>
+                                                <th scope="col">Model</th>
+                                                <th scope="col">Say</th>
+                                                <th scope="col">Qiymət</th>
+                                                <th scope="col">Məbləğ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Tissot</td>
+                                                <td>TISSOT T-RACE CYCLING TOUR DE FRANCE 2022 SPECIAL EDITION</td>
+                                                <td>2</td>
+                                                <td>100</td>
+                                                <td>200</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+<div class="modal fade" id="profileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    @await Html.PartialAsync("_MemberUpdateFormPartial", Model.Update)
+</div>
+
+
+<div class="modal fade" id="passwordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    @await Html.PartialAsync("_MemberUpdatePasswordPartial", Model.Update)
+</div>

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600&display=swap');
+#hero {
+    height: 692px;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 850px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 1.5s ease;
+        
+    }
+
+    .hero-text {
+
+        .header {
+            margin-left: -150px;
+            margin-right: 150px;
+            visibility: hidden;
+            opacity: 0;
+            margin-bottom: 20px;
+            transition: all 1.5s ease;
+            h2 {
+                color: #FFFFFF;
+                font-family: "Poppins" , sans-serif;
+                font-weight: 600;
+                font-size: 35px;
+            }
+        }
+
+        .desc {
+            margin-left: -250px;
+            margin-right: 250px;
+            visibility: hidden;
+            opacity: 0;
+            margin-bottom: 30px;
+            transition: all 1.5s ease;
+            p {font-family: "Poppins" , sans-serif;
+                color: #FFFFFF;
+                line-height: 30px;
+                font-size: 20px;
+            }
+        }
+
+        .linkBtn {
+            margin-left: -350px;
+            margin-right: 350px;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 1.5s ease;
+            a {
+                text-decoration: none;
+                color: #FFFFFF;
+                background-color: #F1A634;
+                padding: 5px 20px;
+                font-family: "Poppins" , sans-serif;
+                font-weight: 500;
+                font-size: 30px;
+                border-radius: 10px;
+                transition: all .5s ease;
+
+                &:hover {
+                    background-color: #f9b44c;
+                    padding: 5px 30px;
+                }
+            }
+        }
+    }
+}

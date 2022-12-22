@@ -1,0 +1,63 @@
+﻿@using BrandShop.Business.DTOs.ProductDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model CreateBrandDto
+
+<style>
+    .form-label {
+        font-size: 20px;
+        color: #F1A634;
+    }
+
+    option[selected = "selected"] {
+        background-color: #F1A634;
+    }
+</style>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="col-xl-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Düzəliş et</h4>
+                </div>
+                <div class="card-body">
+                    <div class="basic-form">
+                        <form method="post" asp-action="create" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="Name">Ad</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Ad">
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label class="form-label" asp-for="ImageFile">Şəkil</label>
+                                    <input class="form-control" asp-for="ImageFile" placeholder="Şəkil">
+                                    <span class="text-danger" asp-validation-for="ImageFile"></span>
+                                </div>
+
+                                <div class="mb-3 col-md-4">
+                                    <label class="form-label" asp-for="Link">Link</label>
+                                    <input asp-for="Link" class="form-control" placeholder="Link">
+                                    <span asp-validation-for="Link" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                           
+
+                            <div asp-validation-summary="ModelOnly"></div>
+
+
+
+
+                            <button type="submit" class="btn btn-primary mt-3">Yarat</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
